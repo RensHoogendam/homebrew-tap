@@ -1,0 +1,25 @@
+name: CI
+
+# Lint every formula on push/PR — including the commits the auto-bump pushes
+# here. Runs `brew style` (rubocop) and `brew audit --strict`. No secrets.
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  formula:
+    name: brew style + audit
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Register this checkout as a tap
+        run: |
+          set -euo pipefail
+          taps="$(brew --repository)/Library/Taps/renshoogendam"
+          mkdir -p "$taps"
+          ln -sf "$GITHUB_WORKSPACE" "$taps/homebrew-tap"
+      - name: brew style
+        run: brew style renshoogendam/tap
+      - name: brew audit --strict
+        run: brew audit --strict renshoogendam/tap/zsh-bw-keys
