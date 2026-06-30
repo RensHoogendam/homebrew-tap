@@ -1,8 +1,8 @@
 class ZshBwKeys < Formula
   desc "Lazy Bitwarden secret injection for zsh environment variables"
   homepage "https://github.com/RensHoogendam/zsh-bw-keys"
-  url "https://github.com/RensHoogendam/zsh-bw-keys/archive/refs/tags/v1.2.1.tar.gz"
-  sha256 "54e6fc85514a2c256a879a4c064c9da83b4c4ed023ce6b944a3a9896b420a230"
+  url "https://github.com/RensHoogendam/zsh-bw-keys/archive/refs/tags/v1.3.0.tar.gz"
+  sha256 "2dad42483955d47f0efb32fdcf0d360e740a10227699d9d6e0d6ace627ebc4ee"
   license "MIT"
 
   depends_on "bitwarden-cli"
